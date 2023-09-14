@@ -96,9 +96,9 @@ debug: build/debug/Makefile		## Opti flags with debug symbols
 	+$(MAKE) -C $(<D) $(ACTIONS)
 
 # Generate the Makefile of the appropriate flavour
-%/Makefile: make.file
-	@$(shell mkdir -p $(@D))
-	@$(shell cp $< $@)
+# %/Makefile: make.file
+# 	@$(shell mkdir -p $(@D))
+# 	@$(shell cp $< $@)
 
 # Gobble extra targets
 %:

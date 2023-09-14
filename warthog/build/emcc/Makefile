@@ -37,9 +37,9 @@ obj/%.o: ../../%.cpp
 bin/%: ../../programs/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
 	@echo "linking..."
 	@$(shell mkdir -p $(@D))
-	emcc $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
+	emcc -sEXIT_RUNTIME $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
 
 test/%: ../../test/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
 	@echo "linking..."
 	@$(shell mkdir -p $(@D))
-	emcc $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
+	emcc -sEXIT_RUNTIME $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
