@@ -9,7 +9,9 @@
 
 #include "constants.h"
 #include <json.hpp>
+#ifndef SINGLE_THREADED
 #include <omp.h>
+#endif // !SINGLE_THREADED
 
 //
 // - Definitions
@@ -27,33 +29,27 @@ typedef std::tuple<unsigned int, // Nodes expanded
                    double>       // Time to do the search
     t_results;
 
-typedef struct config
-{
-    double hscale = 1.0;                // Modifier for heuristic's value
-    double fscale = 0.0;                // Quality tolerance
-    double time = DBL_MAX;
-    uint32_t itrs = warthog::INF32;
-    uint32_t k_moves = warthog::INF32;
-    unsigned char threads = 0;
-    bool verbose = VERBOSE;
-    bool debug = false;
-    bool thread_alloc = false;
-    bool no_cache = false;
+typedef struct config {
+  double hscale = 1.0; // Modifier for heuristic's value
+  double fscale = 0.0; // Quality tolerance
+  double time = DBL_MAX;
+  uint32_t itrs = warthog::INF32;
+  uint32_t k_moves = warthog::INF32;
+  unsigned char threads = 0;
+  bool verbose = VERBOSE;
+  bool debug = false;
+  bool thread_alloc = false;
+  bool no_cache = false;
 } config;
 
-void
-to_json(nlohmann::json& j, const config& c);
+void to_json(nlohmann::json &j, const config &c);
 
-void
-from_json(const nlohmann::json& j, config &c);
+void from_json(const nlohmann::json &j, config &c);
 
-std::ostream&
-operator<<(std::ostream& os, config &c);
+std::ostream &operator<<(std::ostream &os, config &c);
 
-std::istream&
-operator>>(std::istream& is, config &c);
+std::istream &operator>>(std::istream &is, config &c);
 
-void
-sanitise_conf(config& conf);
+void sanitise_conf(config &conf);
 
 #endif // __JSON_CONFIG_H_

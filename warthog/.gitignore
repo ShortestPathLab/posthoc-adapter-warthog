@@ -1,0 +1,3 @@
+build/emcc/bin
+build/emcc/lib
+build/emcc/obj

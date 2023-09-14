@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/spaaaacccee/projects/path-visualiser/pathfinding'
+make: Leaving directory '/home/spaaaacccee/projects/path-visualiser/pathfinding'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+ 
