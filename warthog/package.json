@@ -1,0 +1,19 @@
+{
+  "name": "warthog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "emmake make emcc",
+    "publish": "gh-pages -d ./build/emcc/bin -b wasm-bin"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^6.0.0"
+  }
+}

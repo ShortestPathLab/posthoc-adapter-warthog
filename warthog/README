@@ -1,5 +1,9 @@
 # Warthog WASM
 
+## Install
+
+`npm run install`
+
 ## Compile
 
-`./make.sh`
+`npm run build`
