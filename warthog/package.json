@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "emmake make emcc",
+    "build": "emmake make emcc -B",
     "publish": "gh-pages -d ./build/emcc/bin -b wasm-bin"
   },
   "author": "",

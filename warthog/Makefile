@@ -83,7 +83,7 @@ fast: CFLAGS += -O3 -DNDEBUG -Wno-unused-variable
 fast: build/fast/Makefile		## Compile with opti flags
 	+$(MAKE) -C $(<D) $(ACTIONS)
 
-emcc: CFLAGS += -ggdb -O0 -gdwarf-4 -DSINGLE_THREADED -DQUICK_LOG=1
+emcc: CFLAGS += -O0 -DSINGLE_THREADED -DQUICK_LOG=1
 emcc: build/emcc/Makefile			## Compile with debug symbols
 	+$(MAKE) -C $(<D) $(ACTIONS)
 

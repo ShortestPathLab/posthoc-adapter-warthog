@@ -7,7 +7,7 @@ all: main
 clean:
 	@-$(RM) -rf ./obj/*
 
-main: bin/warthog bin/roadhog bin/mapf
+main: bin/warthog.js bin/roadhog.js bin/mapf.js
 
 # extras: bin/ch bin/fifo bin/make_cpd
 
@@ -34,10 +34,11 @@ obj/%.o: ../../%.cpp
 	emcc -c $< -o $@ $(CFLAGS) $(D_WARTHOG_INCLUDES) -MMD -MP -MT $@ -MF $(@:.o=.d)
 
 # Warthog executables as single targets
-bin/%: ../../programs/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
+bin/%.js: ../../programs/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
 	@echo "linking..."
 	@$(shell mkdir -p $(@D))
-	emcc -sEXIT_RUNTIME $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
+	emcc -sEXIT_RUNTIME -sEXPORTED_RUNTIME_METHODS=FS,callMain -Os --closure 1 $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
+	cp package.json bin/package.json
 
 test/%: ../../test/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
 	@echo "linking..."
