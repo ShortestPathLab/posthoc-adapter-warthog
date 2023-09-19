@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "emmake make emcc -B",
-    "publish": "gh-pages -d ./build/emcc/bin -b wasm-bin"
+    "build": "emmake make emcc -B && rm -rf ./build/emcc/lib ./build/emcc/obj",
+    "publish": "gh-pages -d ./build/emcc -b wasm-bin -v ./build/emcc/Makefile -f"
   },
   "author": "",
   "license": "ISC",

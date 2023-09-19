@@ -37,10 +37,9 @@ obj/%.o: ../../%.cpp
 bin/%.js: ../../programs/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
 	@echo "linking..."
 	@$(shell mkdir -p $(@D))
-	emcc -sEXIT_RUNTIME -sEXPORTED_RUNTIME_METHODS=FS,callMain -Os --closure 1 $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
-	cp package.json bin/package.json
+	emcc -sSINGLE_FILE -sEXPORT_ES6 -s ASSERTIONS=0 -s NO_EXIT_RUNTIME=1 -sEXPORTED_RUNTIME_METHODS=FS,callMain -Os --closure 1 $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
 
 test/%: ../../test/%.cpp $(warthog) $(extra) $(EXTRA_OBJ)
 	@echo "linking..."
 	@$(shell mkdir -p $(@D))
-	emcc -sEXIT_RUNTIME $< -o $@ -lwarthog -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
+	emcc $< -o $@ -lwarthog -s NO_EXIT_RUNTIME=1 -lwarthog-extra $(CFLAGS) $(D_LIBS) $(D_WARTHOG_INCLUDES)
