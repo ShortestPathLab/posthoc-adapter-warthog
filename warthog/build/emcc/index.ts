@@ -1,3 +1,5 @@
+/// <reference types="./index.d.ts"/>
+
 import _warthog from "./bin/warthog";
 import _roadhog from "./bin/roadhog";
 import _mapf from "./bin/mapf";
@@ -26,8 +28,9 @@ async function call(
     postRun: [() => postRun?.(module)],
     print: (a) => void (stdout += `${a}\n`),
     printErr: (a) => void (stderr += `${a}\n`),
+    arguments: args,
   };
-  await bin(module, ...args);
+  await bin(module);
   return { stderr, stdout };
 }
 
