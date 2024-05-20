@@ -1,4 +1,4 @@
-![image](https://github.com/ShortestPathLab/posthoc-adapter-warthog/assets/15244945/b667bc17-9d69-4ac6-8059-6ce1112fe9e1)
+![image](https://github.com/ShortestPathLab/posthoc-adapter-warthog/assets/15244945/55529b51-d12f-4245-aa8e-d8f79891ae97)
 
 
 This repository contains Linux binaries for Posthoc's Warthog WebSocket and WASM adapter.
