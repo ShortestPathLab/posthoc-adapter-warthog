@@ -1,6 +1,11 @@
-# Binaries
+![image](https://github.com/ShortestPathLab/posthoc-adapter-warthog/assets/15244945/b667bc17-9d69-4ac6-8059-6ce1112fe9e1)
 
-This branch contains Linux binaries for the path search visualiser.
+
+This repository contains Linux binaries for Posthoc's Warthog WebSocket and WASM adapter.
+
+Below is the original README from the Warthog repository.
+
+---
 
 ## About
 
