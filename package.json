@@ -7,8 +7,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "postinstall": "npm run build && chmod +x ./warthog/bin/*"
+    "postinstall": "bun build index.ts --outdir . && chmod +x ./warthog/bin/*"
   },
   "repository": {
     "type": "git",
